@@ -3,11 +3,11 @@
 function saturdayFun(activity) {
     switch (activity) {
         case "bathe my dog": return "This Saturday, I want to bathe my dog!";
-        default: return "This Saturday, I want to roller-skate!";
+       default: return "This Saturday, I want to roller-skate!";
     }
 }
-
 console.log(saturdayFun("bathe my dog"));
+
 
 function mondayWork(workTask) {
     switch (workTask) {
@@ -15,21 +15,7 @@ function mondayWork(workTask) {
         default: return "This Monday, I will go to the office."
     }
 }
-
 console.log(mondayWork());
-
-
-function wrapAdjective() {
-    let part1 = 'You are'
-    return function() {
-        let part2 = 'a hard worker'
-        return function() {
-        console.log(`${part1} ${part2}`);
-    }
-}
-}
-
-console.log(wrapAdjective());
 
 function add() {
     return 1 + 3;
@@ -51,6 +37,22 @@ let Calculator = {add, subtract, multiply, divide}
 
 console.log(add());
 
-function actionApplyer() {
+function wrapAdjective(character) {
+    return function(phrase) {
+        return `You are ${character}${phrase}${character}!`
+    }
+}
 
+console.log(wrapAdjective("*")("hard worker"));
+
+function actionApplyer(startingValue, arrayOfFunctions) {
+    let returnVal = startingValue;
+    for (let i = 0; i < arrayOfFunctions.length; i++) {
+        if (i === 0) {
+            returnVal = arrayOfFunctions[i](startingValue);
+        } else {
+            returnVal = arrayOfFunctions[i](returnVal);
+        }
+    }
+    return returnVal;
 }
