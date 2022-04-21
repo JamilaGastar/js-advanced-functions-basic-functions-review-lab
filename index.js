@@ -1,21 +1,21 @@
 // Your code here
 
 function saturdayFun(activity) {
-    switch (activity) {
-        case "bathe my dog": return "This Saturday, I want to bathe my dog!";
-       default: return "This Saturday, I want to roller-skate!";
+    if (activity === "bathe my dog") {
+        return "This Saturday, I want to bathe my dog!";
     }
+        return "This Saturday, I want to roller-skate!";
 }
-console.log(saturdayFun("bathe my dog"));
+console.log(saturdayFun());
 
 
 function mondayWork(workTask) {
-    switch (workTask) {
-        case "work from home": return "This Monday, I will work from home."; 
-        default: return "This Monday, I will go to the office."
+    if (workTask === "work from home") {
+        return "This Monday, I will work from home.";
     }
+        return "This Monday, I will go to the office."
 }
-console.log(mondayWork());
+console.log(mondayWork("work from home"));
 
 function add() {
     return 1 + 3;
@@ -45,6 +45,12 @@ function wrapAdjective(character) {
 
 console.log(wrapAdjective("*")("hard worker"));
 
+const arrayOfFunctions = [
+    function(a){ return a * 2 },
+    function(a){ return a + 1000},
+    function(a){ return a % 7 }
+  ]
+
 function actionApplyer(startingValue, arrayOfFunctions) {
     let returnVal = startingValue;
     for (let i = 0; i < arrayOfFunctions.length; i++) {
@@ -56,3 +62,5 @@ function actionApplyer(startingValue, arrayOfFunctions) {
     }
     return returnVal;
 }
+
+console.log((actionApplyer(13, arrayOfFunctions)));
